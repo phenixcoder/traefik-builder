@@ -1,0 +1,7 @@
+.root {
+  width: "100%";
+  overflow-x: "auto";
+}
+.table {
+  min-width: 650pt;
+}
