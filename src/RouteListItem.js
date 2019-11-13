@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { IconButton, TableRow, TableCell } from "@material-ui/core";
+import { TableRow, TableCell } from "@material-ui/core";
 import HttpsIcon from "@material-ui/icons/Https";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import EditIcon from "@material-ui/icons/Edit";
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 class RouteListItem extends Component {
