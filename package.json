@@ -2,6 +2,7 @@
   "name": "traefik-builder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pheonixcoder.github.io/traefik-builder/",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
