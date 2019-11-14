@@ -1,5 +1,11 @@
 {
     "cSpell.words": [
-        "Traefik"
+        "Entrypoint",
+        "Traefik",
+        "certresolver",
+        "entrypoints",
+        "loadbalancer",
+        "middlewares",
+        "redirectscheme"
     ]
 }

@@ -28,7 +28,6 @@ class RouteForm extends Component {
     if (this.props.route.certificateResolver) {
         this.state.useHTTPS = true;
         this.state.certificateResolver = this.props.route.certificateResolver;
-        debugger;
         this.state.autoRedirect = this.props.route.autoRedirectHttpToHttps;
         if (this.props.route.autoRedirectHttpToHttps) {
             this.state.httpEndpoint = this.props.route.httpEndpoint;
@@ -40,6 +39,11 @@ class RouteForm extends Component {
   closeDialog = () => {
     if (typeof this.props.closeDialog === "function") {
       this.props.closeDialog();
+    }
+  };
+  deleteRoute = () => {
+    if (typeof this.props.deleteRoute === "function") {
+      this.props.deleteRoute();
     }
   };
 
@@ -69,6 +73,11 @@ class RouteForm extends Component {
   };
   handleChange = (name, parsers = []) => e => {
     let value = e.target.value;
+
+    if(typeof parsers === 'function') {
+      parsers = [parsers];
+    }
+    
     parsers.forEach(parser => {
       if (typeof parser === "function") {
         value = parser(value);
@@ -198,6 +207,7 @@ class RouteForm extends Component {
               )}
             </div>
           )}
+          <Button onClick={this.deleteRoute} variant="outlined" color="secondary">Delete Route</Button>
         </DialogContent>
         <DialogActions>
           <Button color="primary" onClick={this.closeDialog}>
