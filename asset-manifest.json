@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/traefik-builder/static/css/main.41efa3dd.chunk.css",
+    "main.js": "/traefik-builder/static/js/main.80fed71e.chunk.js",
+    "main.js.map": "/traefik-builder/static/js/main.80fed71e.chunk.js.map",
+    "runtime-main.js": "/traefik-builder/static/js/runtime-main.bd2cce04.js",
+    "runtime-main.js.map": "/traefik-builder/static/js/runtime-main.bd2cce04.js.map",
+    "static/js/2.c9025ca0.chunk.js": "/traefik-builder/static/js/2.c9025ca0.chunk.js",
+    "static/js/2.c9025ca0.chunk.js.map": "/traefik-builder/static/js/2.c9025ca0.chunk.js.map",
+    "index.html": "/traefik-builder/index.html",
+    "precache-manifest.32c9cb915b417609c66913fcf847a4c1.js": "/traefik-builder/precache-manifest.32c9cb915b417609c66913fcf847a4c1.js",
+    "service-worker.js": "/traefik-builder/service-worker.js",
+    "static/css/main.41efa3dd.chunk.css.map": "/traefik-builder/static/css/main.41efa3dd.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bd2cce04.js",
+    "static/js/2.c9025ca0.chunk.js",
+    "static/css/main.41efa3dd.chunk.css",
+    "static/js/main.80fed71e.chunk.js"
+  ]
+}
