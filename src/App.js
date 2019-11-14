@@ -20,34 +20,10 @@ import OutputView from "./OutputView";
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       currentRow: -1,
-      routes: [
-        {
-          name: "Route-0",
-          host: "hostname.local",
-          port: 80,
-          entrypoint: "websecure",
-          certificateResolver: "awsRoute53",
-          autoRedirectHttpToHttps: true,
-          httpEndpoint: ''
-        },
-        {
-          name: "Route-1",
-          host: "hostname.local",
-          port: 80,
-          entrypoint: "websecure",
-          certificateResolver: "awsRoute53",
-          autoRedirectHttpToHttps: false
-        },
-        {
-          name: "Route-2",
-          host: "hostname2.local",
-          port: 8080,
-          entrypoint: "websecure"
-        }
-      ],
+      routes: [],
       showOutput: false
     };
   }
@@ -55,7 +31,7 @@ class App extends Component {
   addRoute = () => {
     const routes = this.state.routes;
     const newRoute = {
-      name: `Route ${routes.length}`
+      name: `route-${routes.length}`
     };
     routes.push(newRoute);
     this.setState({
@@ -72,8 +48,8 @@ class App extends Component {
   saveRoute = (route, index) => {
     const routes = this.state.routes;
     routes[index] = route;
-    this.setState({routes, currentRow: -1});
-  }
+    this.setState({ routes, currentRow: -1 });
+  };
 
   closeDialog = () => {
     this.setState({ currentRow: -1 });
@@ -87,11 +63,11 @@ class App extends Component {
     this.setState({ showOutput: false });
   };
 
-  deleteRoute = (index) => {
+  deleteRoute = index => {
     let routes = this.state.routes;
     routes.splice(index, 1);
-    this.setState({routes, currentRow: -1});
-  }
+    this.setState({ routes, currentRow: -1 });
+  };
 
   render() {
     return (
@@ -107,7 +83,13 @@ class App extends Component {
             <Typography variant="h4">Traefik Label Builder</Typography>
           </Grid>
           <Grid item>
-            <Button onClick={this.showOutputDialog} variant="contained" color="secondary">Show Output</Button>
+            <Button
+              onClick={this.showOutputDialog}
+              variant="contained"
+              color="secondary"
+            >
+              Show Output
+            </Button>
           </Grid>
           <Table className="table" aria-label="simple table">
             <TableHead>
@@ -130,7 +112,12 @@ class App extends Component {
             </TableBody>
           </Table>
           <Grid item xs={12}>
-            <Button variant="contained" color="primary" onClick={this.addRoute}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.addRoute}
+              fullWidth
+            >
               <AddIcon /> Add Route
             </Button>
           </Grid>
@@ -139,14 +126,25 @@ class App extends Component {
           open={this.state.currentRow > -1}
           aria-labelledby="form-dialog-title"
         >
-          {this.state.currentRow > -1 && <RouteForm route={this.state.routes[this.state.currentRow]} index={this.state.currentRow} closeDialog={this.closeDialog} saveRoute={this.saveRoute} deleteRoute={this.deleteRoute} />}
+          {this.state.currentRow > -1 && (
+            <RouteForm
+              route={this.state.routes[this.state.currentRow]}
+              index={this.state.currentRow}
+              closeDialog={this.closeDialog}
+              saveRoute={this.saveRoute}
+              deleteRoute={this.deleteRoute}
+            />
+          )}
         </Dialog>
         <Dialog
           open={this.state.showOutput}
           aria-labelledby="form-dialog-title"
           fullScreen
         >
-          <OutputView routes={this.state.routes} onClose={this.closeOutputDialog} />
+          <OutputView
+            routes={this.state.routes}
+            onClose={this.closeOutputDialog}
+          />
         </Dialog>
       </Container>
     );
