@@ -210,7 +210,7 @@ class RouteForm extends Component {
                 )}
               </div>
             )}
-            <Grid item>
+            <Grid item xs={12}>
               <Button
                 onClick={this.deleteRoute}
                 variant="outlined"
